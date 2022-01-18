@@ -16,24 +16,28 @@ class LoginController: UIViewController {
     
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passField: UITextField!
+    
+    
 
     @IBAction func loginButton(_ sender: UIButton) {
+        guard let email = self.emailField.text else {return}
+        guard let pass = self.passField.text else {return}
+        
+        
         // Si el login es correcto...
-        //performSegue(withIdentifier: "MainView", sender: nil) // Cambiar vista a MainView
+        //performSegue(withIdentifier: "MenuView", sender: nil) // Cambiar vista a MainView
         
         apiLogin()
     }
 
     func apiLogin(){
-        let url = URL(string: "http://kurokiji.com/api/login")
-        let json = ["email": emailField.text,
-                    "password": passField.text]
-        AF.request(url!, method: .put, parameters: json).responseJSON { response in
-            let responseJSON = response
-            print(responseJSON)
-        }
+        
     }
     
-    
+    struct loginJSON: Decodable {
+        let msg: String
+        let status: Int
+        let user: String?
+    }
 
 }

@@ -96,17 +96,17 @@
                     <connections>
                         <outlet property="emailField" destination="wM2-rZ-SBF" id="0Nz-N4-JCo"/>
                         <outlet property="passField" destination="Mwh-qu-wTo" id="ZrH-cf-prk"/>
-                        <segue destination="MM8-ar-80n" kind="presentation" identifier="MainView" modalPresentationStyle="fullScreen" id="OwS-65-uxg"/>
+                        <segue destination="MM8-ar-80n" kind="presentation" identifier="MenuView" modalPresentationStyle="fullScreen" id="OwS-65-uxg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OWs-Da-Mk6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1068" y="100"/>
         </scene>
-        <!--Main Controller-->
+        <!--Menu Controller-->
         <scene sceneID="3nN-Ej-keD">
             <objects>
-                <viewController id="MM8-ar-80n" customClass="MainController" customModule="Tarea2_GestionEmpleados" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="MM8-ar-80n" customClass="MenuController" customModule="Tarea2_GestionEmpleados" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qtu-xh-aED">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
