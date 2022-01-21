@@ -28,6 +28,7 @@ class ViewController: UIViewController {
     }
 
     func loadRegistry(){
+        dismiss(animated: true, completion: nil)
         performSegue(withIdentifier: "LoginView", sender: nil) // Cambiar vista a LoginView
     }
     

@@ -10,9 +10,9 @@ import Foundation
 struct RegisterModel : Encodable {
     let name: String
     let email: String
-    let password: String
+    let password: String?
     let job: String
-    let salary: Int
-    let biography: String?
-    let profileImgUrl: String?
+    let salary: Float
+    let biography: String
+    let avatar: String?
 }
