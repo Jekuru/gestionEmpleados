@@ -7,6 +7,6 @@
 
 import Foundation
 
-let base_url = "http://kurokiji.com/api"
+let base_url = "http://kurokiji.es/api"
 let register_url = "\(base_url)/employee/add"
 let login_url = "\(base_url)/login"

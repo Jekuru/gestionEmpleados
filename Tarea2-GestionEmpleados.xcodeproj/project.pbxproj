@@ -88,6 +88,7 @@
 		0D27121A2796C5CE0008A12B /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				0DE56FBD27996ED6008950E6 /* RegisterController.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -134,7 +135,6 @@
 				0D9B7598278D74B700FFC521 /* Assets.xcassets */,
 				0D9B759A278D74B700FFC521 /* LaunchScreen.storyboard */,
 				0D9B759D278D74B700FFC521 /* Info.plist */,
-				0DE56FBD27996ED6008950E6 /* RegisterController.swift */,
 				0DDAF0FF279AAB9A001905D6 /* Extension+UIViewController.swift */,
 				0DDAF101279AACE9001905D6 /* AlertController.swift */,
 			);

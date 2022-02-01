@@ -31,9 +31,9 @@ class APIManager{
                     let json = try JSONSerialization.jsonObject(with: data!, options: [])
                     print(json)
                     if response.response?.statusCode == 200 {
-                        completionHandler(true, (json as? AnyObject)?.value(forKey: "msg") as! String)
+                        completionHandler(true, (json as AnyObject).value(forKey: "msg") as! String)
                     }else {
-                        completionHandler(false, (json as? AnyObject)?.value(forKey: "msg") as! String)
+                        completionHandler(false, (json as AnyObject).value(forKey: "msg") as! String)
                     }
                 }catch{
                     print(error.localizedDescription)
@@ -48,7 +48,7 @@ class APIManager{
     
     func callingLoginAPI(login: LoginModel, completionHandler: @escaping Handler){
         let headers: HTTPHeaders = [
-            .contentType("application/json"),
+            .contentType("application/json")
         ]
         
         AF.request(login_url, method: .put, parameters: login, encoder: JSONParameterEncoder.default, headers: headers).response{ response in
