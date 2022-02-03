@@ -24,15 +24,38 @@ class LoginController: UIViewController {
         APIManager.shareInstance.callingLoginAPI(login: modelLogin) { (result) in
             switch result{
             case .success(let json):
+                
+                //Test
                 print(json as AnyObject)
+                
                 let name = ((json as AnyObject).value(forKey: "user") as AnyObject).value(forKey: "name") as! String
                 let api_token = ((json as AnyObject).value(forKey: "user") as AnyObject).value(forKey: "api_token") as! String
                 let modelLoginResponse = LoginResponseModel(name: name, api_token: api_token)
+                UserDefaults.standard.set(name, forKey: "username")
+                UserDefaults.standard.set(api_token, forKey: "token")
+                
+                self.loadMainView()
+                
+                /*
+                 Store
+                     UserDefaults.standard.set(object/value, forKey: "key_name")
+                 Retrive
+                     var returnValue: [datatype]? = UserDefaults.standard.object(forKey: "key_name") as? [datatype]
+                 Remove
+                     UserDefaults.standard.removeObject(forKey:"key_name")
+                 */
+                
+                
+                // Test
                 print(modelLoginResponse)
-                // Almacenada respuesta por ahora en modelLoginResponse, investigar las userpreferences para almacenamiento del token y demas que sea persistente al cerrar la app. Será necesario entonces una forma de hacer logout.
+                
             case .failure(let err):
                 print(err.localizedDescription)
             }
         }
+    }
+    
+    func loadMainView(){
+        performSegue(withIdentifier: "MenuView", sender: nil) // Cambiar vista a MainView
     }
 }

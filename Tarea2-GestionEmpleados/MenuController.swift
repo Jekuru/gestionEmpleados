@@ -9,9 +9,14 @@ import UIKit
 
 class MenuController: UIViewController {
     
+    @IBOutlet weak var welcomeText: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        let returnUsername: String? = UserDefaults.standard.object(forKey: "username") as? String
+        welcomeText.text = "Bienvenido " + returnUsername!
     }
 
 }

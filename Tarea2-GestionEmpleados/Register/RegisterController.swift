@@ -18,7 +18,7 @@ class RegisterController: UIViewController {
     @IBOutlet weak var biographyField: UITextField!
     @IBOutlet weak var avatarField: UITextField!
     
-    let userToken = ""
+    let userToken: String? = UserDefaults.standard.object(forKey: "token") as? String
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +48,7 @@ class RegisterController: UIViewController {
         let avatar = self.avatarField.text
         
         let register = RegisterModel(name: name!, email: email!, password: password!, job: job, salary: salary, biography: biography!, avatar: avatar!)
-        APIManager.shareInstance.callingRegisterAPI(register: register, token_value: userToken){ (isSuccess, str) in
+        APIManager.shareInstance.callingRegisterAPI(register: register, token_value: userToken!){ (isSuccess, str) in
             if isSuccess{
                 self.showAlert(title: "SUCCESS", message: str)
             } else {
