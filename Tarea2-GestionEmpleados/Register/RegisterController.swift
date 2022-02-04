@@ -50,10 +50,16 @@ class RegisterController: UIViewController {
         let register = RegisterModel(name: name!, email: email!, password: password!, job: job, salary: salary, biography: biography!, avatar: avatar!)
         APIManager.shareInstance.callingRegisterAPI(register: register, token_value: userToken!){ (isSuccess, str) in
             if isSuccess{
-                self.showAlert(title: "SUCCESS", message: str)
+                self.showAlert(title: "Register complete", message: str)
             } else {
-                self.showAlert(title: "FAILED", message: str)
+                self.showAlert(title: "Sorry, but there was an error", message: str)
             }
         }
     }
+    
+    @IBAction func backButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
 }

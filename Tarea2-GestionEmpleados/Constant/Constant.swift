@@ -10,3 +10,5 @@ import Foundation
 let base_url = "http://kurokiji.es/api"
 let register_url = "\(base_url)/employee/add"
 let login_url = "\(base_url)/login"
+let reset_url = "\(base_url)/passwordrecover"
+let logut_url = "\(base_url)/employee/logout"
