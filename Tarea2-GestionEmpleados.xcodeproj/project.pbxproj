@@ -13,6 +13,7 @@
 		0D61251D27AD2140009A1F89 /* ResetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D61251C27AD2140009A1F89 /* ResetPasswordController.swift */; };
 		0D61251F27AD231F009A1F89 /* ResetPasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D61251E27AD231F009A1F89 /* ResetPasswordModel.swift */; };
 		0D61252127AD4244009A1F89 /* LogoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D61252027AD4244009A1F89 /* LogoutModel.swift */; };
+		0D73BFC727B52B6200FFE22A /* UsersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D73BFC627B52B6200FFE22A /* UsersController.swift */; };
 		0D8EB70527A3ECDF0085A4DF /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8EB70427A3ECDF0085A4DF /* LoginModel.swift */; };
 		0D9B7590278D74B600FFC521 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9B758F278D74B600FFC521 /* AppDelegate.swift */; };
 		0D9B7592278D74B600FFC521 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9B7591278D74B600FFC521 /* SceneDelegate.swift */; };
@@ -35,6 +36,7 @@
 		0D61251C27AD2140009A1F89 /* ResetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordController.swift; sourceTree = "<group>"; };
 		0D61251E27AD231F009A1F89 /* ResetPasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordModel.swift; sourceTree = "<group>"; };
 		0D61252027AD4244009A1F89 /* LogoutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutModel.swift; sourceTree = "<group>"; };
+		0D73BFC627B52B6200FFE22A /* UsersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersController.swift; sourceTree = "<group>"; };
 		0D8EB70427A3ECDF0085A4DF /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		0D9B758C278D74B600FFC521 /* Tarea2-GestionEmpleados.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tarea2-GestionEmpleados.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D9B758F278D74B600FFC521 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 		0D61251727AD2095009A1F89 /* Users */ = {
 			isa = PBXGroup;
 			children = (
+				0D73BFC627B52B6200FFE22A /* UsersController.swift */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				0D2712162796C05F0008A12B /* RegisterModel.swift in Sources */,
 				0D9B75A4278D7B1500FFC521 /* LoginController.swift in Sources */,
 				0D9B7594278D74B600FFC521 /* ViewController.swift in Sources */,
+				0D73BFC727B52B6200FFE22A /* UsersController.swift in Sources */,
 				0D9B7590278D74B600FFC521 /* AppDelegate.swift in Sources */,
 				0D9B7592278D74B600FFC521 /* SceneDelegate.swift in Sources */,
 				0D9B75A6278D86E300FFC521 /* MenuController.swift in Sources */,

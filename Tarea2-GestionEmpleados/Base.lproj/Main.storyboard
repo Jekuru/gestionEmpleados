@@ -245,7 +245,7 @@
         <scene sceneID="vXL-tO-4Bz">
             <objects>
                 <navigationController title="Users Nav" id="yr9-Td-IVU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="uId-ec-o3r"/>
+                    <tabBarItem key="tabBarItem" title="Users" id="uId-ec-o3r"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zJi-VL-ZsU">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -262,7 +262,7 @@
         <scene sceneID="BJK-iS-Ki6">
             <objects>
                 <navigationController title="Home Nav" id="BlI-V4-Oaj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="El1-ux-daD"/>
+                    <tabBarItem key="tabBarItem" title="Profile" id="El1-ux-daD"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="TGI-9G-dFr">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -458,18 +458,39 @@
         <!--Users View-->
         <scene sceneID="dnN-l6-PNy">
             <objects>
-                <viewController title="Users View" id="By2-fS-g76" sceneMemberID="viewController">
+                <viewController title="Users View" id="By2-fS-g76" customClass="UsersController" customModule="Tarea2_GestionEmpleados" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vKE-Tf-VtC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZOS-X3-Bjt">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="ZjT-ey-Bx7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Users" id="Nxp-lf-er6"/>
+                    <navigationItem key="navigationItem" title="Users" id="Nxp-lf-er6">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="DDs-LV-JKs">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="gDB-97-iIC">
+                                <rect key="frame" x="302" y="7" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Update list"/>
+                                <connections>
+                                    <action selector="updateList:" destination="By2-fS-g76" eventType="touchUpInside" id="Qtb-N2-hSa"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="ZOS-X3-Bjt" id="tur-gE-Ooy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c48-GJ-dee" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2177" y="1534"/>
+            <point key="canvasLocation" x="2175.36231884058" y="1533.4821428571429"/>
         </scene>
         <!--Login View-->
         <scene sceneID="C1L-D9-yY4">

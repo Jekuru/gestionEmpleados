@@ -44,6 +44,8 @@ class MenuController: UIViewController {
         biographyText.text = biography
     }
 
+    
+    
     @IBAction func logoutButton(_ sender: Any) {
         let returnToken = returnUserInfo!["api_token"] as! String
         let logoutModel = LogoutModel(token: returnToken)
