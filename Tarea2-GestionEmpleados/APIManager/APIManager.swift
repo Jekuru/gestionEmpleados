@@ -133,4 +133,31 @@ class APIManager{
             }
         }
     }
+    
+    func callingGetAllUsersAPI(token: String, completionHandler: @escaping Handler){
+        let headers: HTTPHeaders = [
+            .contentType("application/json"),
+            .init(name: "token", value: token)
+        ]
+        
+        AF.request(users_url, method: .get, headers: headers).response{ response in
+            switch response.result{
+            case .success(let data):
+                do{
+                    let json = try JSONSerialization.jsonObject(with: data!, options: [])
+                    if response.response?.statusCode == 200 {
+                        completionHandler(.success(json))
+                    }else {
+                        completionHandler(.failure(.custom(message: "Por favor, compruebe los datos introducidos.")))
+                    }
+                }catch{
+                    print(error.localizedDescription)
+                    completionHandler(.failure(.custom(message: "Por favor, vuelva a intentarlo.")))
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+                completionHandler(.failure(.custom(message: "Por favor, compruebe los datos introducidos.")))
+            }
+        }
+    }
 }

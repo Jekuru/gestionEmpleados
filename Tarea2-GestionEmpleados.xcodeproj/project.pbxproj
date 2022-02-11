@@ -10,6 +10,8 @@
 		0D2712132796BF1A0008A12B /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2712122796BF1A0008A12B /* Constant.swift */; };
 		0D2712162796C05F0008A12B /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2712152796C05F0008A12B /* RegisterModel.swift */; };
 		0D2712192796C0910008A12B /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2712182796C0910008A12B /* APIManager.swift */; };
+		0D44A81327B664B50077964D /* UsersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D44A81227B664B50077964D /* UsersModel.swift */; };
+		0D44A81527B692F20077964D /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D44A81427B692F20077964D /* UserViewController.swift */; };
 		0D61251D27AD2140009A1F89 /* ResetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D61251C27AD2140009A1F89 /* ResetPasswordController.swift */; };
 		0D61251F27AD231F009A1F89 /* ResetPasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D61251E27AD231F009A1F89 /* ResetPasswordModel.swift */; };
 		0D61252127AD4244009A1F89 /* LogoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D61252027AD4244009A1F89 /* LogoutModel.swift */; };
@@ -33,6 +35,8 @@
 		0D2712122796BF1A0008A12B /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		0D2712152796C05F0008A12B /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
 		0D2712182796C0910008A12B /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		0D44A81227B664B50077964D /* UsersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersModel.swift; sourceTree = "<group>"; };
+		0D44A81427B692F20077964D /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		0D61251C27AD2140009A1F89 /* ResetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordController.swift; sourceTree = "<group>"; };
 		0D61251E27AD231F009A1F89 /* ResetPasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordModel.swift; sourceTree = "<group>"; };
 		0D61252027AD4244009A1F89 /* LogoutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutModel.swift; sourceTree = "<group>"; };
@@ -83,6 +87,7 @@
 				0D8EB70427A3ECDF0085A4DF /* LoginModel.swift */,
 				0D61251E27AD231F009A1F89 /* ResetPasswordModel.swift */,
 				0D61252027AD4244009A1F89 /* LogoutModel.swift */,
+				0D44A81227B664B50077964D /* UsersModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -130,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				0D73BFC627B52B6200FFE22A /* UsersController.swift */,
+				0D44A81427B692F20077964D /* UserViewController.swift */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -333,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D2712192796C0910008A12B /* APIManager.swift in Sources */,
+				0D44A81527B692F20077964D /* UserViewController.swift in Sources */,
 				0D8EB70527A3ECDF0085A4DF /* LoginModel.swift in Sources */,
 				0D2712132796BF1A0008A12B /* Constant.swift in Sources */,
 				0D2712162796C05F0008A12B /* RegisterModel.swift in Sources */,
@@ -340,6 +347,7 @@
 				0D9B7594278D74B600FFC521 /* ViewController.swift in Sources */,
 				0D73BFC727B52B6200FFE22A /* UsersController.swift in Sources */,
 				0D9B7590278D74B600FFC521 /* AppDelegate.swift in Sources */,
+				0D44A81327B664B50077964D /* UsersModel.swift in Sources */,
 				0D9B7592278D74B600FFC521 /* SceneDelegate.swift in Sources */,
 				0D9B75A6278D86E300FFC521 /* MenuController.swift in Sources */,
 				0DDAF102279AACE9001905D6 /* AlertController.swift in Sources */,
