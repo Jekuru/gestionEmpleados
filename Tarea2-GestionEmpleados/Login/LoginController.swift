@@ -22,15 +22,23 @@ class LoginController: UIViewController {
         guard let email = self.emailField.text else {return}
         guard let pass = self.passField.text else {return}
         let modelLogin = LoginModel(email: email, password: pass)
-        APIManager.shareInstance.callingLoginAPI(login: modelLogin) { (result) in
+        APIManager.shareInstance.callingLoginAPI(login: modelLogin) { (result, str) in
+            if result{
+                
+                self.loadMainView()
+            } else {
+                self.showAlert(title: "Login failed", message: str)
+            }
+            /*
             switch result{
             case .success(let json):
                 let userInfo = (json as AnyObject).value(forKey: "user") as AnyObject
                 UserDefaults.standard.set(userInfo, forKey: "userinfo")
                 self.loadMainView()
             case .failure(let err):
+                self.showAlert(title: "Sorry, reset failed", message: str)
                 print(err.localizedDescription)
-            }
+            }*/
         }
     }
     

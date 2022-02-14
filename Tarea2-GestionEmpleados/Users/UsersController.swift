@@ -30,7 +30,7 @@ class UsersController: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func getUsersDataNew(){
-        let returnToken = returnUserInfo!["api_token"] as! String
+        let returnToken = returnUserInfo!["api_token"] as? String ?? "tokenFail"
         APIManager.shareInstance.callingGetAllUsersAPI(token: returnToken) { [self] (result) in
             switch result{
             case .success(let json):
@@ -48,11 +48,13 @@ class UsersController: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     // TABLE VIEW
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        
         performSegue(withIdentifier: "showDetails", sender: self)
+        print("Clicked", indexPath)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? UsersController {
-            
+        if (segue.identifier == "showDetails"){
+                        
         }
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -76,7 +78,7 @@ class UsersController: UIViewController, UITableViewDelegate, UITableViewDataSou
         case "executive":
             cell.userRoleText.text = "Executive"
         default:
-            cell.userRoleText.text = "Can't retrieve role, please update."
+            cell.userRoleText.text = "Please wait..."
         }
         
         // Cargar imagen

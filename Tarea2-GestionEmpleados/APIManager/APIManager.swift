@@ -49,7 +49,7 @@ class APIManager{
     /**
      FUNCIONALIDAD API:                     LOGIN
      */
-    func callingLoginAPI(login: LoginModel, completionHandler: @escaping Handler){
+    func callingLoginAPI(login: LoginModel, completionHandler: @escaping (Bool, String) -> ()){
         let headers: HTTPHeaders = [
             .contentType("application/json")
         ]
@@ -60,17 +60,17 @@ class APIManager{
                 do{
                     let json = try JSONSerialization.jsonObject(with: data!, options: [])
                     if response.response?.statusCode == 200 {
-                        completionHandler(.success(json))
-                    }else {
-                        completionHandler(.failure(.custom(message: "Por favor, compruebe los datos introducidos.")))
+                        completionHandler(true, (json as AnyObject).value(forKey: "msg") as! String)
+                    } else {
+                        completionHandler(false, (json as AnyObject).value(forKey: "msg") as! String)
                     }
                 }catch{
                     print(error.localizedDescription)
-                    completionHandler(.failure(.custom(message: "Por favor, vuelva a intentarlo.")))
+                    completionHandler(false, "Sorry but there was an unexpected error, please contact with an application administrator.")
                 }
             case .failure(let error):
                 print(error.localizedDescription)
-                completionHandler(.failure(.custom(message: "Por favor, compruebe los datos introducidos.")))
+                completionHandler(false, "Sorry but there was an unexpected error, please contact with an application administrator.")
             }
         }
     }
