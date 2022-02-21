@@ -45,10 +45,10 @@ class MenuController: UIViewController {
     }
 
     @IBAction func logoutButton(_ sender: Any) {
-        let returnToken = returnUserInfo!["api_token"] as? String ?? "tokenFail"
-        let logoutModel = LogoutModel(token: returnToken)
+        let returnToken = Session.current.token
+        let logoutModel = LogoutModel(token: returnToken ?? "")
         
-        APIManager.shareInstance.callingLogoutAPI(logout: logoutModel, token_value: returnToken){(isSuccess, str) in
+        APIManager.shareInstance.callingLogoutAPI(logout: logoutModel, token_value: returnToken ?? ""){(isSuccess, str) in
             if isSuccess{
                 self.showAlert(title: "See you later", message: str)
                 UserDefaults.standard.removeObject(forKey:"userinfo")

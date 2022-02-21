@@ -28,6 +28,7 @@
 		0DDAF100279AAB9A001905D6 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDAF0FF279AAB9A001905D6 /* Extension+UIViewController.swift */; };
 		0DDAF102279AACE9001905D6 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDAF101279AACE9001905D6 /* AlertController.swift */; };
 		0DE56FBE27996ED6008950E6 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE56FBD27996ED6008950E6 /* RegisterController.swift */; };
+		0DFF9A6F27C3C2FF0063B997 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF9A6E27C3C2FF0063B997 /* Session.swift */; };
 		43C8E0237EBCA6AA4B7AFC50 /* Pods_Tarea2_GestionEmpleados.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AC103885FF1D87FBC0EA4D1 /* Pods_Tarea2_GestionEmpleados.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		0DDAF0FF279AAB9A001905D6 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
 		0DDAF101279AACE9001905D6 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		0DE56FBD27996ED6008950E6 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
+		0DFF9A6E27C3C2FF0063B997 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		1A38C6ABF7A9A554554DE45A /* Pods-Tarea2-GestionEmpleados.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tarea2-GestionEmpleados.release.xcconfig"; path = "Target Support Files/Pods-Tarea2-GestionEmpleados/Pods-Tarea2-GestionEmpleados.release.xcconfig"; sourceTree = "<group>"; };
 		2F92BB5E95D7BABAEF0A95D3 /* Pods-Tarea2-GestionEmpleados.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tarea2-GestionEmpleados.debug.xcconfig"; path = "Target Support Files/Pods-Tarea2-GestionEmpleados/Pods-Tarea2-GestionEmpleados.debug.xcconfig"; sourceTree = "<group>"; };
 		6AC103885FF1D87FBC0EA4D1 /* Pods_Tarea2_GestionEmpleados.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tarea2_GestionEmpleados.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				0D2712182796C0910008A12B /* APIManager.swift */,
+				0DFF9A6E27C3C2FF0063B997 /* Session.swift */,
 			);
 			path = APIManager;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				0D9B7590278D74B600FFC521 /* AppDelegate.swift in Sources */,
 				0D44A81327B664B50077964D /* UsersModel.swift in Sources */,
 				0D9B7592278D74B600FFC521 /* SceneDelegate.swift in Sources */,
+				0DFF9A6F27C3C2FF0063B997 /* Session.swift in Sources */,
 				0D9B75A6278D86E300FFC521 /* MenuController.swift in Sources */,
 				0DDAF102279AACE9001905D6 /* AlertController.swift in Sources */,
 				0D61251F27AD231F009A1F89 /* ResetPasswordModel.swift in Sources */,

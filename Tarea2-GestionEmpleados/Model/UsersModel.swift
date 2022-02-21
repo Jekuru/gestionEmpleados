@@ -7,12 +7,20 @@
 
 import Foundation
 
-struct UsersModel: Decodable{
+
+struct UsersResponse: Codable {
+    let status: Int
+    let message: String?
+    let data: [UsersModel]
+}
+
+struct UsersModel: Codable {
     let id: Int
     let name: String
     let email: String
     let job: String
-    let salary: Int
+    let salary: Double
     let biography: String?
     let profileImgUrl: String?
+    let api_token: String?
 }

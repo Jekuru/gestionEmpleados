@@ -9,6 +9,7 @@ import UIKit
 
 class UserViewController: UIViewController {
     
+    var user: UsersModel?
     
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
@@ -19,7 +20,11 @@ class UserViewController: UIViewController {
     
     
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
+        
+        if let user = user {
+            // Pintas tus outlets 
+        }
         
     }
     @IBAction func backButton(_ sender: Any) {

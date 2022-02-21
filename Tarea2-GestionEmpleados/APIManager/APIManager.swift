@@ -49,7 +49,7 @@ class APIManager{
     /**
      FUNCIONALIDAD API:                     LOGIN
      */
-    func callingLoginAPI(login: LoginModel, completionHandler: @escaping (Bool, String) -> ()){
+    func callingLoginAPI(login: LoginModel, completionHandler: @escaping (Bool, String, UsersModel?) -> ()){
         let headers: HTTPHeaders = [
             .contentType("application/json")
         ]
@@ -57,20 +57,15 @@ class APIManager{
         AF.request(login_url, method: .put, parameters: login, encoder: JSONParameterEncoder.default, headers: headers).response{ response in
             switch response.result{
             case .success(let data):
-                do{
-                    let json = try JSONSerialization.jsonObject(with: data!, options: [])
-                    if response.response?.statusCode == 200 {
-                        completionHandler(true, (json as AnyObject).value(forKey: "msg") as! String)
-                    } else {
-                        completionHandler(false, (json as AnyObject).value(forKey: "msg") as! String)
-                    }
-                }catch{
-                    print(error.localizedDescription)
-                    completionHandler(false, "Sorry but there was an unexpected error, please contact with an application administrator.")
+                if let data = data, let loginResponse = try? JSONDecoder().decode(LoginResponseModel.self, from: data)
+                {
+                    completionHandler(true, loginResponse.msg, loginResponse.user)
+                } else {
+                    completionHandler(false, "Sorry but there was an unexpected error, please contact with an application administrator.", nil)
                 }
             case .failure(let error):
                 print(error.localizedDescription)
-                completionHandler(false, "Sorry but there was an unexpected error, please contact with an application administrator.")
+                completionHandler(false, "Sorry but there was an unexpected error, please contact with an application administrator.", nil)
             }
         }
     }
@@ -133,7 +128,10 @@ class APIManager{
             }
         }
     }
-    
+    /**
+     
+     FUNCIONALIDAD API:                     OBTENER LISTADO USUARIOS
+     */
     func callingGetAllUsersAPI(token: String, completionHandler: @escaping Handler){
         let headers: HTTPHeaders = [
             .contentType("application/json"),
@@ -141,18 +139,13 @@ class APIManager{
         ]
         
         AF.request(users_url, method: .get, headers: headers).response{ response in
-            switch response.result{
+            switch response.result {
             case .success(let data):
-                do{
-                    let json = try JSONSerialization.jsonObject(with: data!, options: [])
-                    if response.response?.statusCode == 200 {
-                        completionHandler(.success(json))
-                    }else {
-                        completionHandler(.failure(.custom(message: "Por favor, compruebe los datos introducidos.")))
-                    }
-                }catch{
-                    print(error.localizedDescription)
-                    completionHandler(.failure(.custom(message: "Por favor, vuelva a intentarlo.")))
+                if let data = data, let userResponse = try? JSONDecoder().decode(UsersResponse.self, from: data) {
+                    completionHandler(.success(userResponse.data))
+                }
+                else {
+                    completionHandler(.failure(.custom(message: "Por favor, compruebe los datos introducidos.")))
                 }
             case .failure(let error):
                 print(error.localizedDescription)

@@ -22,9 +22,9 @@ class LoginController: UIViewController {
         guard let email = self.emailField.text else {return}
         guard let pass = self.passField.text else {return}
         let modelLogin = LoginModel(email: email, password: pass)
-        APIManager.shareInstance.callingLoginAPI(login: modelLogin) { (result, str) in
+        APIManager.shareInstance.callingLoginAPI(login: modelLogin) { (result, str, user) in
             if result{
-                
+                Session.current.token = user?.api_token
                 self.loadMainView()
             } else {
                 self.showAlert(title: "Login failed", message: str)
