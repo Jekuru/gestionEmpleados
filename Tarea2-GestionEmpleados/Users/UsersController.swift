@@ -43,6 +43,14 @@ class UsersController: UIViewController, UITableViewDelegate, UITableViewDataSou
         tableView.reloadData()
     }
     
+    @IBAction func registerbutton(_ sender: Any) {
+        if(Session.current.job == "employee"){
+            showAlert(title: "Access Denied", message: "You don't have enough permissions to access this feature")
+        } else {
+            performSegue(withIdentifier: "register", sender: nil)
+        }
+    }
+    
     // TABLE VIEW
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         

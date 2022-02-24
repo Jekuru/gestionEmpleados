@@ -12,4 +12,11 @@ final class Session {
     private init() {}
     
     var token: String?
+    
+    var name: String?
+    var job: String?
+    var email: String?
+    var salary: Double?
+    var biography: String?
+    var profileImgUrl: String?
 }

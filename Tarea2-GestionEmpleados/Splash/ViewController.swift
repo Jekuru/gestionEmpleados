@@ -34,13 +34,11 @@ class ViewController: UIViewController {
     }
     
     func checkToken() -> Bool{
-            if((UserDefaults.standard.object(forKey: "userinfo")) != nil){
-                let returnUserInfo: AnyObject? = UserDefaults.standard.object(forKey:"userinfo") as AnyObject
-                let token = returnUserInfo!["api_token"] as! String
-                print(token)
-                return true
+        if(Session.current.token != "" && Session.current.token != nil){
+            print(Session.current.token ?? "Error al cargar el token")
+            return true
             } else {
-                print("No hay token")
+                print("No hay token guardado")
                 return false
             }
     }

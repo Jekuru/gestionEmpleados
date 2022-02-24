@@ -23,7 +23,29 @@ class UserViewController: UIViewController {
         super.viewDidLoad()
         
         if let user = user {
-            // Pintas tus outlets 
+            // Cargar nombre
+            let name = user.name
+            userNameLabel.text = "Welcome " + name
+            // Cargar imagen
+            let imageUrl = user.profileImgUrl ?? "https://friconix.com/png/fi-cnluxx-anonymous-user-circle.png"
+            let url = URL(string: imageUrl)
+            if let data = try? Data(contentsOf: url!){
+                userImageView.image = UIImage(data: data)
+            }
+            
+            // Cargar rol
+            var role = user.job
+            role = role.prefix(1).capitalized + role.dropFirst()
+            userRoleLabel.text = role
+            // Cargar email
+            let email = user.email
+            userEmailLabel.text = "Email: " + email
+            // Cargar salario
+            let salary = user.salary
+            userSalaryLabel.text = "Salary: " + String(salary)
+            // Cargar biografia
+            let biography = user.biography
+            userBiographyLabel.text = biography
         }
         
     }

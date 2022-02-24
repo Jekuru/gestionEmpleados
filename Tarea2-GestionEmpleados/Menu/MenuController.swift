@@ -9,7 +9,6 @@ import UIKit
 
 class MenuController: UIViewController {
     
-    let returnUserInfo: AnyObject? = UserDefaults.standard.object(forKey:"userinfo") as AnyObject
     @IBOutlet weak var welcomeText: UILabel!
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var roleText: UILabel!
@@ -22,31 +21,34 @@ class MenuController: UIViewController {
         // Do any additional setup after loading the view.
         
         // Cargar nombre
-        let username = returnUserInfo!["name"] as? String ?? ""
-        welcomeText.text = "Welcome " + username
+        let name = Session.current.name ?? "nameLoadFail"
+        welcomeText.text = "Welcome " + name
         // Cargar imagen
-        let imageUrl = returnUserInfo!["profileImgUrl"] as? String ?? "https://friconix.com/png/fi-cnluxx-anonymous-user-circle.png"
+        let imageUrl = Session.current.profileImgUrl ?? "https://friconix.com/png/fi-cnluxx-anonymous-user-circle.png"
         let url = URL(string: imageUrl)
-        let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-        avatar.image = UIImage(data: data!)
+        if let data = try? Data(contentsOf: url!){
+            avatar.image = UIImage(data: data)
+        }
+        
         // Cargar rol
-        var role = returnUserInfo!["job"] as? String ?? "jobLoadFail"
+        var role = Session.current.job ??  "jobLoadFail"
         role = role.prefix(1).capitalized + role.dropFirst()
         roleText.text = "Role: " + role
         // Cargar email
-        let email = returnUserInfo!["email"] as? String ?? "emailLoadFail"
+        let email = Session.current.email ?? "emailLoadFail"
         emailText.text = "Email: " + email
         // Cargar salario
-        let salary = returnUserInfo!["salary"] as? Int ?? 0
+        let salary = Session.current.salary ?? 0
         salaryText.text = "Salary: " + String(salary)
         // Cargar biografia
-        let biography = returnUserInfo!["biography"] as? String ?? "biographyLoadFail"
+        let biography = Session.current.biography ?? "biographyLoadFail"
         biographyText.text = biography
     }
 
     @IBAction func logoutButton(_ sender: Any) {
         let returnToken = Session.current.token
         let logoutModel = LogoutModel(token: returnToken ?? "")
+        Session.current.token = ""
         
         APIManager.shareInstance.callingLogoutAPI(logout: logoutModel, token_value: returnToken ?? ""){(isSuccess, str) in
             if isSuccess{

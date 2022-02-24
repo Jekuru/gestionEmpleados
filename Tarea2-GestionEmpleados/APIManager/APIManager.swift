@@ -57,11 +57,22 @@ class APIManager{
         AF.request(login_url, method: .put, parameters: login, encoder: JSONParameterEncoder.default, headers: headers).response{ response in
             switch response.result{
             case .success(let data):
-                if let data = data, let loginResponse = try? JSONDecoder().decode(LoginResponseModel.self, from: data)
+                guard let data = data else
                 {
-                    completionHandler(true, loginResponse.msg, loginResponse.user)
-                } else {
-                    completionHandler(false, "Sorry but there was an unexpected error, please contact with an application administrator.", nil)
+                    completionHandler(false, "", nil)
+                    return
+                }
+                let loginResponse = try? JSONDecoder().decode(LoginResponseModel.self, from: data)
+                if loginResponse == nil {
+                    completionHandler(false, "", nil)
+                }
+                else {
+                    if response.response?.statusCode ?? 404 == 200 {
+                    completionHandler(true, loginResponse!.msg, loginResponse?.user)
+                    }
+                    else {
+                        completionHandler(false, loginResponse!.msg, nil)
+                    }
                 }
             case .failure(let error):
                 print(error.localizedDescription)

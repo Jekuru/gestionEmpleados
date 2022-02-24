@@ -25,20 +25,16 @@ class LoginController: UIViewController {
         APIManager.shareInstance.callingLoginAPI(login: modelLogin) { (result, str, user) in
             if result{
                 Session.current.token = user?.api_token
+                Session.current.name = user?.name
+                Session.current.job = user?.job
+                Session.current.email = user?.email
+                Session.current.salary = user?.salary
+                Session.current.biography = user?.biography
+                Session.current.profileImgUrl = user?.profileImgUrl
                 self.loadMainView()
             } else {
-                self.showAlert(title: "Login failed", message: str)
+                self.showAlert(title: "Can not log in", message: str)
             }
-            /*
-            switch result{
-            case .success(let json):
-                let userInfo = (json as AnyObject).value(forKey: "user") as AnyObject
-                UserDefaults.standard.set(userInfo, forKey: "userinfo")
-                self.loadMainView()
-            case .failure(let err):
-                self.showAlert(title: "Sorry, reset failed", message: str)
-                print(err.localizedDescription)
-            }*/
         }
     }
     
